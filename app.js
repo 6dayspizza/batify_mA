@@ -32,6 +32,10 @@ const hbs = exphbs.create({
 app.engine(".hbs", hbs.engine);
 app.set("view engine", ".hbs");
 
+app.get('/', (req, res) => {
+    res.send('hi microserviceA');
+});
+
 const filePathGolf = 'files/quotes_golf.csv';
 const filePathBats = 'files/quotes_bats.csv';
 
@@ -45,10 +49,6 @@ const readCSVFileGolf = (filePathGolf) => {
             .on('error', (error) => reject(error));
     });
 };
-
-app.get('/', (req, res) => {
-    res.send('hi microserviceA');
-});
 
 app.get('/random-quote-golf', async (req, res) => {
     try {
