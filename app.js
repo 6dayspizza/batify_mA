@@ -1,6 +1,7 @@
 /*
     IMPORTS
 */
+
 const express = require('express');
 const { engine } = require("express-handlebars");
 const exphbs = require("express-handlebars");
@@ -8,17 +9,20 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const cors = require('cors');
 const corsOptions = {
-    origin: 'https://lit-everglades-39146-fd2b4b5a3c5f.herokuapp.com',//(https://your-client-app.com)
+    origin: [
+        'https://lit-everglades-39146-fd2b4b5a3c5f.herokuapp.com',
+        'http://localhost:3000',
+        'https://caddybuddy-1b6344ebc937.herokuapp.com/',
+      ],
     optionsSuccessStatus: 200,
-  };
+};
 
 /*
     SETUP
 */
+
 const app = express();
 const port = process.env.PORT || 3001;
-
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
