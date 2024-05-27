@@ -69,6 +69,10 @@ app.get("/", (req, res) => {
   res.send("hi microserviceA");
 });
 
+/*
+    LISTENER
+*/
+
 app.listen(port, () => {
   console.log(`Microservice listening at http://localhost:${port}`);
 });
